@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E9D2D544-2A3F-48C6-9B23-399153E50AE9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AnwConnector</RootNamespace>
+    <AssemblyName>AnwConnector</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Interop.SAPbobsCOM">
+      <HintPath>obj\x86\Debug\Interop.SAPbobsCOM.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Config.cs" />
+    <Compile Include="AnwConnectorInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AnwConnectorInstaller.Designer.cs">
+      <DependentUpon>AnwConnectorInstaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AnwConnector.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AnwConnector.Designer.cs">
+      <DependentUpon>AnwConnector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Globle.cs" />
+    <Compile Include="Model\ANW2B1\SyncCustomer.cs" />
+    <Compile Include="Model\ANW2B1\SyncInvoice.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\ANW2B1\SyncSalesReturn.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\ANW2B1\SySalesOrderInfo.cs" />
+    <Compile Include="Model\B12ANW\SyncInventoryIssues.cs" />
+    <Compile Include="Model\B12ANW\SyncInventoryReceipts.cs" />
+    <Compile Include="Model\ServiceJob.cs" />
+    <Compile Include="Model\ANW2B1\SyncProduct.cs" />
+    <Compile Include="Util\LogHelper.cs" />
+    <Compile Include="Util\ServiceTools.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\ANWHelper.cs" />
+    <Compile Include="Util\httpHelper\CsharpHttpHelper.BaseBll\HttpHelperBll.cs" />
+    <Compile Include="Util\httpHelper\CsharpHttpHelper.Base\HttphelperBase.cs" />
+    <Compile Include="Util\httpHelper\CsharpHttpHelper.Enum\AType.cs" />
+    <Compile Include="Util\httpHelper\CsharpHttpHelper.Enum\PostDataType.cs" />
+    <Compile Include="Util\httpHelper\CsharpHttpHelper.Enum\ResultCookieType.cs" />
+    <Compile Include="Util\httpHelper\CsharpHttpHelper.Enum\ResultType.cs" />
+    <Compile Include="Util\httpHelper\CsharpHttpHelper.Helper\Base64Helper.cs" />
+    <Compile Include="Util\httpHelper\CsharpHttpHelper.Helper\EncodingHelper.cs" />
+    <Compile Include="Util\httpHelper\CsharpHttpHelper.Helper\ExecJsHelper.cs" />
+    <Compile Include="Util\httpHelper\CsharpHttpHelper.Helper\HtmlHelper.cs" />
+    <Compile Include="Util\httpHelper\CsharpHttpHelper.Helper\HttpCookieHelper.cs" />
+    <Compile Include="Util\httpHelper\CsharpHttpHelper.Helper\HttpUrlHelper.cs" />
+    <Compile Include="Util\httpHelper\CsharpHttpHelper.Helper\ImageHelper.cs" />
+    <Compile Include="Util\httpHelper\CsharpHttpHelper.Helper\JsonHelper.cs" />
+    <Compile Include="Util\httpHelper\CsharpHttpHelper.Helper\MD5Helper.cs" />
+    <Compile Include="Util\httpHelper\CsharpHttpHelper.Item\AItem.cs" />
+    <Compile Include="Util\httpHelper\CsharpHttpHelper.Item\ImgItem.cs" />
+    <Compile Include="Util\httpHelper\CsharpHttpHelper.Static\RegexString.cs" />
+    <Compile Include="Util\httpHelper\CsharpHttpHelper\HttpHelper.cs" />
+    <Compile Include="Util\httpHelper\CsharpHttpHelper\HttpItem.cs" />
+    <Compile Include="Util\httpHelper\CsharpHttpHelper\HttpResult.cs" />
+    <Compile Include="Util\SapDIHelper.cs" />
+    <Compile Include="Util\SqlHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AnwConnectorInstaller.resx">
+      <DependentUpon>AnwConnectorInstaller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnwConnector.resx">
+      <DependentUpon>AnwConnector.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Lib\log4net.dll" />
+    <Content Include="Lib\Newtonsoft.Json.dll" />
+    <Content Include="log4net.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
